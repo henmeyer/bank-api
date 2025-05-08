@@ -10,7 +10,8 @@ import accountService from "../account/AccountService";
 const handleEvent = (payload: IEvent): IAccount | undefined => {
   validateEvent(payload);
 
-  const { type, origin, destination, amount } = payload;
+  const { type, origin, destination } = payload;
+  const amount = Number(payload.amount);
 
   const handlers = {
     deposit: () => accountService.deposit(destination, amount),
@@ -28,7 +29,8 @@ const handleEvent = (payload: IEvent): IAccount | undefined => {
 };
 
 const validateEvent = (payload: IEvent): void => {
-  const { type, origin, destination, amount } = payload;
+  const { type, origin, destination } = payload;
+  const amount = Number(payload.amount);
 
   if (!type || !amount || (!origin && !destination)) {
     throw new Error("Invalid event payload");
