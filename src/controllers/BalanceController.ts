@@ -23,9 +23,9 @@ const getBalance = (req: Request, res: Response) => {
     }
 
     res.status(200).send(balance);
-  } catch (error) {
+  } catch (error: any) {
     console.error(error);
-    res.status(500).send("Internal Server Error");
+    res.status(400).send(error.message || "Bad Request");
   }
 };
 

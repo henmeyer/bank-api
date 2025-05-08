@@ -24,7 +24,7 @@ const handleEvent = (req: Request, res: Response) => {
 
     res.status(201).send(result);
   } catch (error: any) {
-    res.status(500).send(error.message || "Internal Server Error");
+    res.status(400).send(error.message || "Bad Request");
   }
 };
 

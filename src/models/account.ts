@@ -35,9 +35,21 @@ class Account implements IAccount {
    * @returns The updated account
    */
   withdraw = (amount: number) => {
+    if (!this.hasEnoughBalance(amount)) {
+      throw new Error("Insufficient balance");
+    }
     this._balance = this._balance - amount;
     return { id: this._id, balance: this._balance };
   };
+
+  /**
+   * Check if the account has enough balance
+   * @param amount - The amount of money to check
+   * @returns True if the account has enough balance, false otherwise
+   */
+  private hasEnoughBalance(amount: number) {
+    return this._balance >= amount;
+  }
 }
 
 export default Account;

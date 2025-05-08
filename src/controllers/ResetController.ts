@@ -10,9 +10,9 @@ const handleReset = (req: Request, res: Response) => {
   try {
     resetService.reset();
     res.status(200).send("OK");
-  } catch (error) {
+  } catch (error: any) {
     console.error(error);
-    res.status(500).send("Internal Server Error");
+    res.status(400).send(error.message || "Bad Request");
   }
 };
 
