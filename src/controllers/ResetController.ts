@@ -1,6 +1,11 @@
 import { Request, Response } from "express";
 import resetService from "../services/ResetService";
 
+/**
+ * Handle a reset request
+ * @param req - The request
+ * @param res - The response
+ */
 const handleReset = (req: Request, res: Response) => {
   try {
     resetService.reset();

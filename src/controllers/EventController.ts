@@ -2,6 +2,11 @@ import { Request, Response } from "express";
 import EventService from "../services/event/EventService";
 import IEvent from "../interfaces/IEvent";
 
+/**
+ * Handle an event
+ * @param req - The request
+ * @param res - The response
+ */
 const handleEvent = (req: Request, res: Response) => {
   try {
     if (!req.body) {

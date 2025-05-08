@@ -1,6 +1,11 @@
 import { Request, Response } from "express";
 import accountService from "../services/account/AccountService";
 
+/**
+ * Get the balance of an account
+ * @param req - The request
+ * @param res - The response
+ */
 const getBalance = (req: Request, res: Response) => {
   const { account_id: id } = req.query as { account_id: string };
 
