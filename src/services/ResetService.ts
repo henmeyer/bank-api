@@ -1,5 +1,7 @@
+import accountsStore from "../store/AccountsStore";
+
 const reset = () => {
-  console.log("Resetting");
+  accountsStore.reset();
 };
 
 export default { reset };

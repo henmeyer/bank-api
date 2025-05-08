@@ -8,7 +8,7 @@ const router = Router();
 
 router.get("/balance", BalanceController.getBalance);
 
-router.post("/events", EventController.handleEvent);
+router.post("/event", EventController.handleEvent);
 
 router.post("/reset", ResetController.handleReset);
 
