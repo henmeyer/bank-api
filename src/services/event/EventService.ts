@@ -10,6 +10,14 @@ import accountService from "../account/AccountService";
 const handleEvent = (payload: IEvent): IAccount | undefined => {
   const { type, origin, destination, amount } = payload;
 
+  if (!type || !amount || (!origin && !destination)) {
+    throw new Error("Invalid event payload");
+  }
+
+  if (amount <= 0) {
+    throw new Error("Amount must be greater than 0");
+  }
+
   const handlers = {
     deposit: () => accountService.deposit(destination, amount),
     withdraw: () => accountService.withdraw(origin, amount),
