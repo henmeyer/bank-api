@@ -6,9 +6,11 @@ import IAccount from "../interfaces/IAccount";
 class Account implements IAccount {
   private _id: string;
   private _balance: number = 0;
+  private _specialCheck: number = 0;
 
-  constructor(id: string) {
+  constructor(id: string, specialCheck: number = 0) {
     this._id = id;
+    this._specialCheck = specialCheck;
   }
 
   /**
@@ -48,7 +50,7 @@ class Account implements IAccount {
    * @returns True if the account has enough balance, false otherwise
    */
   private hasEnoughBalance(amount: number) {
-    return this._balance >= amount;
+    return this._balance + this._specialCheck >= amount;
   }
 }
 
